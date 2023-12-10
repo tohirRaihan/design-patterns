@@ -2,47 +2,61 @@ package design_principles.delegation_principle;
 
 public class Demo2 {
     public static void main(String[] args) {
-        HP hp = new HP();
-        Printer2 printer = new Printer2(hp);
-        printer.print();
+        PrinterController hpPrinterController = new PrinterController(new HpPrinter());
+        PrinterController canonPrinterController = new PrinterController(new CanonPrinter());
+        PrinterController epsonPrinterController = new PrinterController(new EpsonPrinter());
+
+        hpPrinterController.print();
+        canonPrinterController.print();
+        epsonPrinterController.print();
     }
 }
 
-interface Task {
+interface Printer {
     void print();
 }
 
 // The Delegator
-class Printer2 implements Task {
-    Task realPrinter;
+class PrinterController implements Printer {
+    private final Printer printer;
 
-    Printer2(Task realPrinter) {
-        this.realPrinter = realPrinter;
+    PrinterController(Printer printer) {
+        this.printer = printer;
     }
 
     @Override
     public void print() {
-        realPrinter.print(); // delegation (delegate task to the actual object)
-    }
-
-}
-
-// The Delegate
-class HP implements Task {
-
-    @Override
-    public void print() {
-        System.out.println("HP Printing ...");
+        printer.print(); // delegation (delegate task to the actual object)
     }
 
 }
 
 // The Delegate
-class Epson implements Task {
+class CanonPrinter implements Printer {
 
     @Override
     public void print() {
-        System.out.println("Epson Printing");
+        System.out.println("CanonPrinter Printing ...");
+    }
+
+}
+
+// The Delegate
+class EpsonPrinter implements Printer {
+
+    @Override
+    public void print() {
+        System.out.println("EpsonPrinter Printing ...");
+    }
+
+}
+
+// The Delegate
+class HpPrinter implements Printer {
+
+    @Override
+    public void print() {
+        System.out.println("HpPrinter Printing ...");
     }
 
 }
