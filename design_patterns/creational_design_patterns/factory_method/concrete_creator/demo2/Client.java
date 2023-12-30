@@ -1,7 +1,7 @@
 package design_patterns.creational_design_patterns.factory_method.concrete_creator.demo2;
 
 class Client {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Animal animal1 = new AnimalFactory().getAnimal("Tiger");
         Animal animal2 = new AnimalFactory().getAnimal("Duck");
 

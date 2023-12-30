@@ -2,7 +2,7 @@ package design_patterns.creational_design_patterns.factory_method.concrete_creat
 
 class AnimalFactory {
 
-    public Animal getAnimal(String animalType) {
+    public Animal getAnimal(String animalType) throws Exception {
 
         switch (animalType.toUpperCase()) {
             case "DUCK":
@@ -12,9 +12,9 @@ class AnimalFactory {
                 return new Tiger();
         
             default:
-                return null;
+                throw new Exception("Animal Type: " + animalType + " can't be instantiated");
         }
 
     }
-    
+
 }
