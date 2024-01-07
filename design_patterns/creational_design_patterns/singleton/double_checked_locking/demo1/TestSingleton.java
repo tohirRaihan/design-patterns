@@ -1,4 +1,4 @@
-package design_patterns.creational_design_patterns.singleton.double_checked_locking;
+package design_patterns.creational_design_patterns.singleton.double_checked_locking.demo1;
 
 class TestSingleton {
     public static void main(String[] args) {
