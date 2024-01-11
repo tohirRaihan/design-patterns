@@ -7,9 +7,16 @@ class Client {
         Director director = new Director();
 
         BuilderInterface carBuilder = new Car();
+        BuilderInterface motorCycleBuilder = new Motorcycle();
 
+        // making a car
         director.construct(carBuilder);
         Product product1 = carBuilder.getVehicle();
         product1.show();
+
+        // making a motorcycle
+        director.construct(motorCycleBuilder);
+        Product product2 = motorCycleBuilder.getVehicle();
+        product2.show();
     }
 }
