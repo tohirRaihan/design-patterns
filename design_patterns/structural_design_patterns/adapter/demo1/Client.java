@@ -7,20 +7,28 @@ class Client {
         WildTurkey turkey = new WildTurkey();
 
         Duck turkeyAdapter = new TurkeyAdapter(turkey);
+        Turkey duckAdapter = new DuckAdapter(duck);
 
         System.out.println("The Turkey says ...");
-        turkey.gobble();
-        turkey.fly();
+        Client.testTurkey(turkey);
 
         System.out.println("\nThe Duck says ...");
-        Client.testDuch(duck);
+        Client.testDuck(duck);
 
         System.out.println("\nThe TurkeyAdapter says ...");
-        Client.testDuch(turkeyAdapter);
+        Client.testDuck(turkeyAdapter);
+
+        System.out.println("\nThe DuckAdapter says ...");
+        Client.testTurkey(duckAdapter);
     }
 
-    private static void testDuch(Duck duck) {
+    private static void testDuck(Duck duck) {
         duck.quack();
         duck.fly();
+    }
+
+    private static void testTurkey(Turkey turkey) {
+        turkey.gobble();
+        turkey.fly();
     }
 }
